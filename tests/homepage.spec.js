@@ -19,7 +19,7 @@ test("Verify that user is able to scroll to the buttom of the page", async ({ pa
     })
 })
 
-test.only("Verify that user is able to adda product to cart", async ({ page }) => {
+test("Verify that user is able to adda product to cart", async ({ page }) => {
     await page.goto('https://demoblaze.com/index.html');
     await page.waitForTimeout(2000);
     await page.locator("//a[normalize-space()='Samsung galaxy s7']").click();
@@ -53,5 +53,22 @@ test.only("Verify that user is able to adda product to cart", async ({ page }) =
     await page.locator('#year').fill('2026');
     await page.waitForTimeout(2000);
     await page.locator("button[onclick='purchaseOrder()']").click();
+})
+
+test("Verify that user can click on item, go back a page and go forward", async ({ page }) => {
+    await page.goto('https://demoblaze.com/index.html');
+    // From the Homepage to the next page
+    await page.locator("a:has-text('Samsung galaxy s7')").click();
+    await page.waitForLoadState('load');
+    await page.waitForTimeout(2000);
+
+    // Back to homepage
+    await page.goBack();
+    await page.waitForLoadState('load');
+    await page.waitForTimeout(2000);
+
+    // Forward again to product page
+    await page.goForward();
+    await page.waitForLoadState('load');
 
 })
