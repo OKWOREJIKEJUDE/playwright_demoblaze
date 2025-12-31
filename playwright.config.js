@@ -1,6 +1,15 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
 
+//This lne is to slow down the test from moving very fast
+// module.exports = defineConfig({
+//   use: {
+//     headless: false,
+//     slowMo: 300, // slows down all actions
+//   },
+// });
+
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
