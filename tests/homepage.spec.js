@@ -72,3 +72,9 @@ test("Verify that user can click on item, go back a page and go forward", async 
     await page.waitForLoadState('load');
 
 })
+
+test("Verify that user is able to click on monitor", async ({page})=>{
+    await page.goto('https://demoblaze.com/index.html');
+    await page.waitForTimeout(2000);
+    await page.locator("(//a[normalize-space()='Monitors'])[1]").click();
+})

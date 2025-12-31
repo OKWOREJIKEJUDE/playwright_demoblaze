@@ -3,9 +3,11 @@ import { test, expect } from '@playwright/test';
 
 test("Verify that a sheet appears when contact button is clicked", async ({ page }) => {
     await page.goto('https://demoblaze.com/index.html');
+    await page.waitForTimeout(2000);
 })
 
 test("Verify that user is able to enter message in empty fields and click on send message button", async ({ page }) => {
+    await page.waitForTimeout(2000);
     await page.goto('https://demoblaze.com/index.html');
     await page.waitForTimeout(2000);
     await page.getByRole('link', { name: 'Contact' }).click();
